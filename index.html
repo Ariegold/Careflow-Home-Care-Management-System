@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareFlow — Home Care Management System</title>
+    <meta name="description" content="CareFlow: A comprehensive home care management system for scheduling, documentation, compliance, and billing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                        <path d="M14 2C7.373 2 2 7.373 2 14s5.373 12 12 12 12-5.373 12-12S20.627 2 14 2z" fill="url(#logoGrad)" opacity="0.15"/>
+                        <path d="M14 6c-1.1 0-2 .9-2 2v2h-2c-1.1 0-2 .9-2 2s.9 2 2 2h2v2c0 1.1.9 2 2 2s2-.9 2-2v-2h2c1.1 0 2-.9 2-2s-.9-2-2-2h-2V8c0-1.1-.9-2-2-2z" fill="url(#logoGrad)"/>
+                        <defs>
+                            <linearGradient id="logoGrad" x1="2" y1="2" x2="26" y2="26">
+                                <stop stop-color="#6EE7B7"/>
+                                <stop offset="1" stop-color="#3B82F6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="logo-text">CareFlow</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <span class="nav-section-title">Overview</span>
+                <a href="#" class="nav-item active" data-page="dashboard" id="nav-dashboard">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-page="analysis" id="nav-analysis">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    <span>Transcript Analysis</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <span class="nav-section-title">Care Operations</span>
+                <a href="#" class="nav-item" data-page="patients" id="nav-patients">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>Patients</span>
+                </a>
+                <a href="#" class="nav-item" data-page="caregivers" id="nav-caregivers">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>Caregivers</span>
+                </a>
+                <a href="#" class="nav-item" data-page="scheduling" id="nav-scheduling">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <span>Scheduling</span>
+                </a>
+                <a href="#" class="nav-item" data-page="careplans" id="nav-careplans">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+                    <span>Care Plans</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <span class="nav-section-title">Administration</span>
+                <a href="#" class="nav-item" data-page="documentation" id="nav-documentation">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    <span>Documentation</span>
+                </a>
+                <a href="#" class="nav-item" data-page="compliance" id="nav-compliance">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span>Compliance & EVV</span>
+                </a>
+                <a href="#" class="nav-item" data-page="billing" id="nav-billing">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    <span>Billing</span>
+                </a>
+                <a href="#" class="nav-item" data-page="authorisations" id="nav-authorisations">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <span>Authorisations</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">AD</div>
+                <div class="user-info">
+                    <span class="user-name">Admin User</span>
+                    <span class="user-role">Agency Owner</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <div class="topbar-left">
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+                <span class="page-subtitle" id="pageSubtitle">Home Care Operations Overview</span>
+            </div>
+            <div class="topbar-right">
+                <div class="search-bar">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" placeholder="Search patients, caregivers..." id="globalSearch">
+                </div>
+                <button class="topbar-btn notification-btn" id="notificationBtn" aria-label="Notifications">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    <span class="notification-badge">3</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Page Container -->
+        <div class="page-container" id="pageContainer">
+
+            <!-- ========== DASHBOARD PAGE ========== -->
+            <section class="page active" id="page-dashboard">
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon kpi-icon--patients">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="kpi-content">
+                            <span class="kpi-value" id="kpiPatients">24</span>
+                            <span class="kpi-label">Active Patients</span>
+                        </div>
+                        <span class="kpi-trend kpi-trend--up">+12%</span>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon kpi-icon--caregivers">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="kpi-content">
+                            <span class="kpi-value" id="kpiCaregivers">18</span>
+                            <span class="kpi-label">Active Caregivers</span>
+                        </div>
+                        <span class="kpi-trend kpi-trend--up">+8%</span>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon kpi-icon--visits">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </div>
+                        <div class="kpi-content">
+                            <span class="kpi-value" id="kpiVisits">156</span>
+                            <span class="kpi-label">Visits This Week</span>
+                        </div>
+                        <span class="kpi-trend kpi-trend--up">+5%</span>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon kpi-icon--compliance">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="kpi-content">
+                            <span class="kpi-value" id="kpiCompliance">97%</span>
+                            <span class="kpi-label">EVV Compliance</span>
+                        </div>
+                        <span class="kpi-trend kpi-trend--up">+2%</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Today's Schedule -->
+                    <div class="card card--wide">
+                        <div class="card-header">
+                            <h2 class="card-title">Today's Schedule</h2>
+                            <button class="card-action-btn" onclick="navigateTo('scheduling')">View All</button>
+                        </div>
+                        <div class="schedule-list" id="dashScheduleList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Alerts & Notifications -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Alerts</h2>
+                        </div>
+                        <div class="alerts-list" id="dashAlertsList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Compliance Overview -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Compliance Status</h2>
+                        </div>
+                        <div class="compliance-overview" id="dashComplianceOverview">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Recent Documentation -->
+                    <div class="card card--wide">
+                        <div class="card-header">
+                            <h2 class="card-title">Recent Documentation</h2>
+                            <button class="card-action-btn" onclick="navigateTo('documentation')">View All</button>
+                        </div>
+                        <div class="doc-list" id="dashDocList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== TRANSCRIPT ANALYSIS PAGE ========== -->
+            <section class="page" id="page-analysis">
+                <div class="analysis-container">
+                    <div class="analysis-header">
+                        <div class="analysis-badge">Transcript Analysis Report</div>
+                        <p class="analysis-date">Generated: <span id="analysisDate"></span></p>
+                    </div>
+
+                    <div class="analysis-section">
+                        <h2 class="analysis-section-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            Executive Summary
+                        </h2>
+                        <div class="analysis-content">
+                            <p>The transcript comprises two distinct content sources discussing home care software solutions and documentation best practices within the home healthcare industry. The primary discussion evaluates three home care software platforms — HHA Exchange, WellSky, and OnTime ITS — ranked against operational efficiency, user experience, EVV compliance, and cost-effectiveness. The secondary content provides an educational overview of client care documentation standards, emphasising six key attributes essential for quality record-keeping. A supplementary segment addresses the contents required for client-facing care folders maintained at the patient's residence.</p>
+                            <p>The overarching theme centres on the critical importance of selecting the right technology stack and implementing rigorous documentation practices to ensure compliance, operational efficiency, and scalability for home care agency operators.</p>
+                        </div>
+                    </div>
+
+                    <div class="analysis-section">
+                        <h2 class="analysis-section-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                            Key Insights &amp; Takeaways
+                        </h2>
+                        <div class="analysis-content">
+                            <ul class="insight-list">
+                                <li><strong>EVV compliance is non-negotiable</strong> — Electronic Visit Verification is both a legal requirement and a foundation for trust and accountability within the home care sector.</li>
+                                <li><strong>Software selection directly impacts scalability</strong> — The right platform can streamline scheduling, billing, authorisation management, and charting, positioning an agency for growth.</li>
+                                <li><strong>Legacy platforms carry usability debt</strong> — Established systems such as HHA Exchange, whilst widely adopted, may present outdated user interfaces and clunky workflows.</li>
+                                <li><strong>Cost of software activation can be prohibitive</strong> — Start-up costs ranging from $2,000 to $5,000 for platforms like WellSky represent a significant burden for new agencies.</li>
+                                <li><strong>Contractual lock-in poses financial risk</strong> — Long-term contracts with cancellation fees can trap operators in unsuitable solutions.</li>
+                                <li><strong>Operator-designed software addresses real-world gaps</strong> — Platforms built by active industry operators tend to better understand and address day-to-day operational needs.</li>
+                                <li><strong>Documentation is the patient's story</strong> — Accurate, timely, and comprehensive documentation is fundamental to quality care delivery and legal protection.</li>
+                                <li><strong>Six attributes define quality documentation</strong> — Accuracy, accessibility, comprehensiveness, consistency, timeliness, and relevancy.</li>
+                                <li><strong>Client folder management is essential</strong> — Including timesheets, service plans, rights and responsibilities, DNR documents, and allergy information.</li>
+                                <li><strong>Multi-service agencies need unified platforms</strong> — Agencies operating across home care, medical staffing, and adult daycare benefit from a single integrated solution.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="analysis-section">
+                        <h2 class="analysis-section-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            Software Analysis
+                        </h2>
+                        <div class="software-cards">
+                            <!-- HHA Exchange -->
+                            <div class="software-card">
+                                <div class="software-card-header">
+                                    <div class="software-rank">#3</div>
+                                    <div>
+                                        <h3 class="software-name">HHA Exchange</h3>
+                                        <span class="software-tag">Legacy Platform</span>
+                                    </div>
+                                </div>
+                                <div class="software-body">
+                                    <div class="sw-section">
+                                        <h4>Overview</h4>
+                                        <p>A widely-used home care software platform offering robust features for EVV compliance, employee and patient management, authorisation tracking, and charting. One of the most established platforms in the market.</p>
+                                    </div>
+                                    <div class="sw-columns">
+                                        <div class="sw-col sw-col--strengths">
+                                            <h4>Strengths</h4>
+                                            <ul>
+                                                <li>Comprehensive EVV compliance capabilities</li>
+                                                <li>Widely recognised — minimal learning curve for new hires</li>
+                                                <li>Supports integration with third-party software systems</li>
+                                                <li>Allows external EVV data feeds from other platforms</li>
+                                                <li>Employee and patient management functionality</li>
+                                            </ul>
+                                        </div>
+                                        <div class="sw-col sw-col--weaknesses">
+                                            <h4>Weaknesses</h4>
+                                            <ul>
+                                                <li>Antiquated, dated user interface</li>
+                                                <li>"Clunky" user experience compared to modern solutions</li>
+                                                <li>Lack of significant system updates to match contemporary standards</li>
+                                                <li>Not as user-friendly as newer platforms</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="sw-section">
+                                        <h4>Best Use Cases</h4>
+                                        <p>Agencies prioritising industry-standard EVV compliance and those seeking a platform with widespread familiarity amongst potential staff hires. Suitable for agencies where insurance companies mandate HHA Exchange for EVV purposes.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- WellSky -->
+                            <div class="software-card">
+                                <div class="software-card-header">
+                                    <div class="software-rank">#2</div>
+                                    <div>
+                                        <h3 class="software-name">WellSky</h3>
+                                        <span class="software-tag">Skilled Care Focus</span>
+                                    </div>
+                                </div>
+                                <div class="software-body">
+                                    <div class="sw-section">
+                                        <h4>Overview</h4>
+                                        <p>A comprehensive home healthcare management platform, particularly well-suited for agencies providing skilled nursing services. Offers tools for OASIS assessments, nursing visits, and PT/OT management alongside personal care functionality.</p>
+                                    </div>
+                                    <div class="sw-columns">
+                                        <div class="sw-col sw-col--strengths">
+                                            <h4>Strengths</h4>
+                                            <ul>
+                                                <li>Strong skilled nursing and clinical visit tools</li>
+                                                <li>OASIS assessment capability for Medicare clients</li>
+                                                <li>Comprehensive approach to home healthcare management</li>
+                                                <li>Widely used by skilled home care agencies</li>
+                                                <li>High user ratings and survey responses</li>
+                                            </ul>
+                                        </div>
+                                        <div class="sw-col sw-col--weaknesses">
+                                            <h4>Weaknesses</h4>
+                                            <ul>
+                                                <li>Scheduling tool described as "clunky"</li>
+                                                <li>Difficulty tracking authorisation-to-visit workflows</li>
+                                                <li>Requires navigating away to view subsequent patient schedules</li>
+                                                <li>High activation cost ($2,000–$5,000)</li>
+                                                <li>Long-term contracts with significant cancellation fees</li>
+                                                <li>Reported lack of mobile access (personal care variant)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="sw-section">
+                                        <h4>Best Use Cases</h4>
+                                        <p>Agencies primarily delivering skilled nursing, PT/OT, and Medicare-funded services. Best suited for established agencies with budget capacity for higher activation costs and long-term software commitment.</p>
+                                    </div>
+                                    <div class="sw-section sw-section--risk">
+                                        <h4>Risks &amp; Limitations</h4>
+                                        <p>The contractual lock-in period (2–3 years) presents significant financial risk for start-up agencies. Transitioning away incurs substantial cancellation fees. The scheduling workflow is inefficient for coordinating large numbers of concurrent visits.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- OnTime ITS -->
+                            <div class="software-card software-card--featured">
+                                <div class="software-card-header">
+                                    <div class="software-rank software-rank--gold">#1</div>
+                                    <div>
+                                        <h3 class="software-name">OnTime ITS</h3>
+                                        <span class="software-tag software-tag--featured">Operator-Designed</span>
+                                    </div>
+                                </div>
+                                <div class="software-body">
+                                    <div class="sw-section">
+                                        <h4>Overview</h4>
+                                        <p>A home care software platform designed by an active industry operator, built with business growth in mind. Adaptable across home care, medical staffing, and adult daycare operations. Positioned as an all-in-one solution addressing gaps identified in competing platforms.</p>
+                                    </div>
+                                    <div class="sw-columns">
+                                        <div class="sw-col sw-col--strengths">
+                                            <h4>Strengths</h4>
+                                            <ul>
+                                                <li>Designed by operators for operators — addresses real-world challenges</li>
+                                                <li>Superior scheduling tool with repeating schedules (nursing, PT, custom visits)</li>
+                                                <li>In-system employee onboarding and application processing</li>
+                                                <li>Document compliance tracking (physical renewals, in-service training)</li>
+                                                <li>Multiple billing formats (UB04, CMS-1500, private pay)</li>
+                                                <li>Overtime restriction safeguards</li>
+                                                <li>Authorisation validation hard stops</li>
+                                                <li>Cross-service adaptability (home care, medical staffing, adult daycare)</li>
+                                                <li>Continuous feature development driven by operator needs</li>
+                                            </ul>
+                                        </div>
+                                        <div class="sw-col sw-col--weaknesses">
+                                            <h4>Weaknesses</h4>
+                                            <ul>
+                                                <li>The presenter is the creator, introducing potential bias in the evaluation</li>
+                                                <li>Newer platform — market adoption and long-term track record not established by transcript evidence</li>
+                                                <li>Comparative data against established platforms is limited to the presenter's personal experience</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="sw-section">
+                                        <h4>Best Use Cases</h4>
+                                        <p>Multi-service agencies operating across home care, medical staffing, and adult daycare. Start-up agencies seeking a unified, growth-oriented platform. Operators prioritising efficient scheduling, authorisation enforcement, and integrated billing.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analysis-section">
+                        <h2 class="analysis-section-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            Industry Observations
+                        </h2>
+                        <div class="analysis-content">
+                            <div class="observation-grid">
+                                <div class="observation-card">
+                                    <h4>EVV as Industry Standard</h4>
+                                    <p>Electronic Visit Verification is described as both a legal requirement and a compliance cornerstone. Insurance companies are mandating specific platforms (e.g., HHA Exchange) for EVV data submission.</p>
+                                </div>
+                                <div class="observation-card">
+                                    <h4>Software Market Fragmentation</h4>
+                                    <p>No single platform was identified as fully meeting all operational needs across home care, skilled nursing, and medical staffing. Operators frequently use multiple systems, creating inefficiency.</p>
+                                </div>
+                                <div class="observation-card">
+                                    <h4>Documentation Standards Gap</h4>
+                                    <p>Many agencies still rely on manual documentation methods (notepads, Microsoft Word). The transition to digital care documentation platforms remains incomplete across the industry.</p>
+                                </div>
+                                <div class="observation-card">
+                                    <h4>Cost Barriers for Start-ups</h4>
+                                    <p>Activation fees of $2,000–$5,000 and long-term contractual commitments create significant barriers to entry for new agency operators.</p>
+                                </div>
+                                <div class="observation-card">
+                                    <h4>Compliance Complexity</h4>
+                                    <p>Agencies face multi-layered compliance requirements including employee document tracking, authorisation validation, overtime restrictions, and care plan adherence.</p>
+                                </div>
+                                <div class="observation-card">
+                                    <h4>Mobile Access Expectation</h4>
+                                    <p>Mobile accessibility for caregivers (documentation via mobile phone) is increasingly expected as standard functionality. Platforms lacking mobile access may be deemed unsuitable.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analysis-section">
+                        <h2 class="analysis-section-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Operational Recommendations
+                        </h2>
+                        <div class="analysis-content">
+                            <div class="recommendation-list">
+                                <div class="recommendation-item">
+                                    <div class="rec-number">01</div>
+                                    <div class="rec-content">
+                                        <h4>Evaluate software against all service lines before committing</h4>
+                                        <p>Agencies operating or planning to operate across multiple service types (home care, skilled nursing, medical staffing) should prioritise platforms that support all business verticals from a single system.</p>
+                                    </div>
+                                </div>
+                                <div class="recommendation-item">
+                                    <div class="rec-number">02</div>
+                                    <div class="rec-content">
+                                        <h4>Scrutinise contractual terms and exit clauses</h4>
+                                        <p>Before committing to any platform, carefully review contract duration, cancellation fees, and total cost of ownership. Start-up agencies should favour platforms with flexible terms.</p>
+                                    </div>
+                                </div>
+                                <div class="recommendation-item">
+                                    <div class="rec-number">03</div>
+                                    <div class="rec-content">
+                                        <h4>Implement the six documentation attributes as standard practice</h4>
+                                        <p>Adopt accuracy, accessibility, comprehensiveness, consistency, timeliness, and relevancy as the quality framework for all clinical documentation within the agency.</p>
+                                    </div>
+                                </div>
+                                <div class="recommendation-item">
+                                    <div class="rec-number">04</div>
+                                    <div class="rec-content">
+                                        <h4>Ensure authorisation validation is enforced by the software</h4>
+                                        <p>Implement hard stops preventing scheduling of visits beyond valid authorisation periods to eliminate revenue leakage from unbillable services.</p>
+                                    </div>
+                                </div>
+                                <div class="recommendation-item">
+                                    <div class="rec-number">05</div>
+                                    <div class="rec-content">
+                                        <h4>Build overtime safeguards into scheduling workflows</h4>
+                                        <p>Automated overtime restrictions should be in place to prevent caregiver over-scheduling, particularly where overtime services are not reimbursed by insurance companies.</p>
+                                    </div>
+                                </div>
+                                <div class="recommendation-item">
+                                    <div class="rec-number">06</div>
+                                    <div class="rec-content">
+                                        <h4>Standardise client home folders with essential documentation</h4>
+                                        <p>Every client's home folder should include: timesheets, the agreed service/care plan, rights and responsibilities documentation, DNR instructions (where applicable), and allergy information.</p>
+                                    </div>
+                                </div>
+                                <div class="recommendation-item">
+                                    <div class="rec-number">07</div>
+                                    <div class="rec-content">
+                                        <h4>Prioritise mobile-accessible documentation systems</h4>
+                                        <p>Given the field-based nature of home care work, ensure the selected software platform provides full mobile functionality for caregivers conducting documentation at the point of care.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== PATIENTS PAGE ========== -->
+            <section class="page" id="page-patients">
+                <div class="page-actions">
+                    <button class="btn btn--primary" id="addPatientBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Add Patient
+                    </button>
+                </div>
+                <div class="data-table-container">
+                    <table class="data-table" id="patientsTable">
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Date of Birth</th>
+                                <th>Primary Diagnosis</th>
+                                <th>Assigned Caregiver</th>
+                                <th>Auth. Status</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patientsTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ========== CAREGIVERS PAGE ========== -->
+            <section class="page" id="page-caregivers">
+                <div class="page-actions">
+                    <button class="btn btn--primary" id="addCaregiverBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Add Caregiver
+                    </button>
+                </div>
+                <div class="data-table-container">
+                    <table class="data-table" id="caregiversTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Certification</th>
+                                <th>Compliance</th>
+                                <th>Assigned Patients</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="caregiversTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ========== SCHEDULING PAGE ========== -->
+            <section class="page" id="page-scheduling">
+                <div class="page-actions">
+                    <div class="schedule-controls">
+                        <button class="btn btn--outline" id="schedPrevWeek">&larr; Prev</button>
+                        <span class="schedule-week-label" id="schedWeekLabel">This Week</span>
+                        <button class="btn btn--outline" id="schedNextWeek">Next &rarr;</button>
+                    </div>
+                    <button class="btn btn--primary" id="addVisitBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Schedule Visit
+                    </button>
+                </div>
+                <div class="schedule-grid" id="scheduleGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- ========== CARE PLANS PAGE ========== -->
+            <section class="page" id="page-careplans">
+                <div class="page-actions">
+                    <button class="btn btn--primary" id="addCarePlanBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        New Care Plan
+                    </button>
+                </div>
+                <div class="careplan-grid" id="carePlanGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- ========== DOCUMENTATION PAGE ========== -->
+            <section class="page" id="page-documentation">
+                <div class="doc-quality-banner">
+                    <h3>6 Key Attributes of Quality Documentation</h3>
+                    <div class="doc-attributes">
+                        <div class="doc-attr">
+                            <div class="doc-attr-icon">🎯</div>
+                            <span>Accuracy</span>
+                        </div>
+                        <div class="doc-attr">
+                            <div class="doc-attr-icon">🔓</div>
+                            <span>Accessibility</span>
+                        </div>
+                        <div class="doc-attr">
+                            <div class="doc-attr-icon">📋</div>
+                            <span>Comprehensiveness</span>
+                        </div>
+                        <div class="doc-attr">
+                            <div class="doc-attr-icon">🔄</div>
+                            <span>Consistency</span>
+                        </div>
+                        <div class="doc-attr">
+                            <div class="doc-attr-icon">⏱️</div>
+                            <span>Timeliness</span>
+                        </div>
+                        <div class="doc-attr">
+                            <div class="doc-attr-icon">✅</div>
+                            <span>Relevancy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn--primary" id="newDocBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        New Note
+                    </button>
+                </div>
+                <div class="doc-entries" id="docEntries">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- ========== COMPLIANCE & EVV PAGE ========== -->
+            <section class="page" id="page-compliance">
+                <div class="compliance-dashboard">
+                    <div class="compliance-score-card">
+                        <div class="compliance-ring" id="complianceRing">
+                            <svg viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+                                <circle cx="60" cy="60" r="54" fill="none" stroke="url(#compGrad)" stroke-width="8" stroke-linecap="round" stroke-dasharray="339.29" stroke-dashoffset="10.18" transform="rotate(-90 60 60)"/>
+                                <defs>
+                                    <linearGradient id="compGrad" x1="0" y1="0" x2="1" y2="1">
+                                        <stop stop-color="#6EE7B7"/>
+                                        <stop offset="1" stop-color="#3B82F6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="compliance-ring-value">97%</div>
+                        </div>
+                        <h3>Overall EVV Compliance</h3>
+                        <p>Electronic Visit Verification rate across all active visit records</p>
+                    </div>
+                    <div class="compliance-metrics">
+                        <div class="comp-metric">
+                            <span class="comp-metric-value">156</span>
+                            <span class="comp-metric-label">Total Visits This Week</span>
+                        </div>
+                        <div class="comp-metric">
+                            <span class="comp-metric-value">151</span>
+                            <span class="comp-metric-label">EVV Verified</span>
+                        </div>
+                        <div class="comp-metric">
+                            <span class="comp-metric-value">5</span>
+                            <span class="comp-metric-label">Pending Verification</span>
+                        </div>
+                        <div class="comp-metric">
+                            <span class="comp-metric-value">0</span>
+                            <span class="comp-metric-label">Non-Compliant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h2 class="card-title">Document Compliance Tracker</h2>
+                    </div>
+                    <div class="data-table-container">
+                        <table class="data-table" id="complianceTable">
+                            <thead>
+                                <tr>
+                                    <th>Caregiver</th>
+                                    <th>Document</th>
+                                    <th>Expiry Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="complianceTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== BILLING PAGE ========== -->
+            <section class="page" id="page-billing">
+                <div class="billing-summary-grid">
+                    <div class="billing-card">
+                        <span class="billing-card-label">Invoiced (This Month)</span>
+                        <span class="billing-card-value">£42,350</span>
+                        <span class="kpi-trend kpi-trend--up">+18%</span>
+                    </div>
+                    <div class="billing-card">
+                        <span class="billing-card-label">Collected</span>
+                        <span class="billing-card-value">£38,200</span>
+                        <span class="kpi-trend kpi-trend--up">+15%</span>
+                    </div>
+                    <div class="billing-card">
+                        <span class="billing-card-label">Outstanding</span>
+                        <span class="billing-card-value">£4,150</span>
+                        <span class="kpi-trend kpi-trend--down">-22%</span>
+                    </div>
+                    <div class="billing-card">
+                        <span class="billing-card-label">Denied Claims</span>
+                        <span class="billing-card-value">3</span>
+                        <span class="kpi-trend kpi-trend--down">-40%</span>
+                    </div>
+                </div>
+                <div class="page-actions">
+                    <div class="billing-format-select">
+                        <label>Format:</label>
+                        <select id="billingFormat">
+                            <option value="ub04">UB-04</option>
+                            <option value="cms1500">CMS-1500</option>
+                            <option value="private">Private Pay</option>
+                        </select>
+                    </div>
+                    <button class="btn btn--primary" id="newInvoiceBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        New Invoice
+                    </button>
+                </div>
+                <div class="data-table-container">
+                    <table class="data-table" id="billingTable">
+                        <thead>
+                            <tr>
+                                <th>Invoice #</th>
+                                <th>Patient</th>
+                                <th>Service Date</th>
+                                <th>Amount</th>
+                                <th>Format</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="billingTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ========== AUTHORISATIONS PAGE ========== -->
+            <section class="page" id="page-authorisations">
+                <div class="page-actions">
+                    <button class="btn btn--primary" id="addAuthBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Add Authorisation
+                    </button>
+                </div>
+                <div class="data-table-container">
+                    <table class="data-table" id="authTable">
+                        <thead>
+                            <tr>
+                                <th>Auth #</th>
+                                <th>Patient</th>
+                                <th>Service Type</th>
+                                <th>Authorised Hours</th>
+                                <th>Used Hours</th>
+                                <th>Valid From</th>
+                                <th>Valid To</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="authTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modalContainer">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Add New</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic form content -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn--outline" id="modalCancel">Cancel</button>
+                <button class="btn btn--primary" id="modalSave">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
