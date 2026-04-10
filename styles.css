@@ -1,47 +1,47 @@
 /* ============================
-   CareFlow — Design System
+   KindTide Care Management System
    Typography: Outfit
-   Theme: Light — White, Olive & Green
+   Theme: Teal & White
    ============================ */
 
 /* --- CSS Custom Properties --- */
 :root {
     /* Palette */
-    --bg-primary: #F5F7F2;
-    --bg-secondary: #EAEFE4;
-    --bg-card: rgba(255, 255, 255, 0.92);
-    --bg-card-hover: rgba(235, 245, 230, 0.85);
-    --bg-sidebar: #2D3B1F;
-    --bg-input: rgba(107, 124, 62, 0.07);
+    --bg-primary: #F0FDFC;
+    --bg-secondary: #E0F7F5;
+    --bg-card: rgba(255, 255, 255, 0.97);
+    --bg-card-hover: rgba(240, 253, 252, 0.95);
+    --bg-sidebar: #0F766E;
+    --bg-input: rgba(20, 184, 166, 0.06);
     --bg-modal: #FFFFFF;
 
-    --border-color: rgba(107, 124, 62, 0.15);
-    --border-active: rgba(107, 124, 62, 0.5);
+    --border-color: rgba(20, 184, 166, 0.18);
+    --border-active: rgba(13, 148, 136, 0.55);
 
-    --text-primary: #1C2610;
-    --text-secondary: #4A5E2D;
-    --text-muted: #7A9050;
-    --text-accent: #6B7C3E;
+    --text-primary: #134E4A;
+    --text-secondary: #0F766E;
+    --text-muted: #5EADA7;
+    --text-accent: #14B8A6;
 
-    --accent-green: #6B7C3E;
-    --accent-light-green: #A8D5A2;
-    --accent-blue: #3B82F6;
+    --accent-green: #14B8A6;
+    --accent-teal-dark: #0D9488;
+    --accent-blue: #0EA5E9;
     --accent-purple: #7C6FA0;
-    --accent-amber: #C07C2A;
-    --accent-red: #C0392B;
-    --accent-cyan: #2E9E7A;
-    --accent-pink: #B56B8A;
+    --accent-amber: #D97706;
+    --accent-red: #DC2626;
+    --accent-cyan: #06B6D4;
+    --accent-pink: #DB2777;
 
-    --gradient-primary: linear-gradient(135deg, #6B7C3E, #A8D5A2);
-    --gradient-warm: linear-gradient(135deg, #C07C2A, #E8A87C);
-    --gradient-cool: linear-gradient(135deg, #7C6FA0, #6B7C3E);
-    --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(232,242,224,0.8));
+    --gradient-primary: linear-gradient(135deg, #14B8A6, #0D9488);
+    --gradient-warm: linear-gradient(135deg, #D97706, #F59E0B);
+    --gradient-cool: linear-gradient(135deg, #0EA5E9, #14B8A6);
+    --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(240,253,252,0.9));
 
     /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(45, 59, 31, 0.08);
-    --shadow-md: 0 4px 12px rgba(45, 59, 31, 0.12);
-    --shadow-lg: 0 8px 32px rgba(45, 59, 31, 0.15);
-    --shadow-glow: 0 0 30px rgba(107, 124, 62, 0.15);
+    --shadow-sm: 0 1px 3px rgba(13, 148, 136, 0.08);
+    --shadow-md: 0 4px 12px rgba(13, 148, 136, 0.12);
+    --shadow-lg: 0 8px 32px rgba(13, 148, 136, 0.16);
+    --shadow-glow: 0 0 30px rgba(20, 184, 166, 0.2);
 
     /* Layout */
     --sidebar-width: 260px;
@@ -89,7 +89,7 @@ body::before {
     right: -200px;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(168, 213, 162, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(153, 246, 228, 0.18) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
 }
@@ -101,13 +101,13 @@ body::after {
     left: -100px;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(107, 124, 62, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
 }
 
 ::selection {
-    background: rgba(107, 124, 62, 0.2);
+    background: rgba(20, 184, 166, 0.2);
     color: var(--text-primary);
 }
 
@@ -116,14 +116,14 @@ body::after {
     height: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: rgba(107, 124, 62, 0.05);
+    background: rgba(20, 184, 166, 0.05);
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(107, 124, 62, 0.25);
+    background: rgba(20, 184, 166, 0.25);
     border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(107, 124, 62, 0.45);
+    background: rgba(20, 184, 166, 0.45);
 }
 
 /* --- Sidebar --- */
@@ -294,7 +294,7 @@ body::after {
     display: flex;
     align-items: center;
     padding: 0 2rem;
-    background: rgba(245, 247, 242, 0.92);
+    background: rgba(240, 253, 252, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
@@ -363,7 +363,7 @@ body::after {
 .search-bar input:focus {
     border-color: var(--border-active);
     background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 0 3px rgba(107, 124, 62, 0.12);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.12);
 }
 
 .search-bar input::placeholder {
@@ -401,7 +401,7 @@ body::after {
 }
 
 .topbar-btn:hover {
-    background: rgba(107, 124, 62, 0.1);
+    background: rgba(20, 184, 166, 0.1);
     color: var(--text-primary);
 }
 
@@ -552,12 +552,12 @@ body::after {
 }
 
 .kpi-trend--up {
-    background: rgba(107, 124, 62, 0.12);
+    background: rgba(20, 184, 166, 0.12);
     color: var(--accent-green);
 }
 
 .kpi-trend--down {
-    background: rgba(192, 57, 43, 0.1);
+    background: rgba(220, 38, 38, 0.1);
     color: var(--accent-red);
 }
 
@@ -579,7 +579,7 @@ body::after {
 }
 
 .card:hover {
-    border-color: rgba(107, 124, 62, 0.3);
+    border-color: rgba(20, 184, 166, 0.3);
 }
 
 .card--wide {
@@ -630,7 +630,7 @@ body::after {
 }
 
 .schedule-item:hover {
-    background: rgba(107, 124, 62, 0.05);
+    background: rgba(20, 184, 166, 0.05);
 }
 
 .schedule-time {
@@ -676,12 +676,12 @@ body::after {
 }
 
 .status--confirmed {
-    background: rgba(107, 124, 62, 0.12);
+    background: rgba(20, 184, 166, 0.12);
     color: var(--accent-green);
 }
 
 .status--pending {
-    background: rgba(192, 124, 42, 0.12);
+    background: rgba(217, 119, 6, 0.12);
     color: var(--accent-amber);
 }
 
@@ -691,32 +691,32 @@ body::after {
 }
 
 .status--active {
-    background: rgba(107, 124, 62, 0.12);
+    background: rgba(20, 184, 166, 0.12);
     color: var(--accent-green);
 }
 
 .status--inactive {
-    background: rgba(122, 144, 80, 0.1);
+    background: rgba(20, 184, 166, 0.1);
     color: var(--text-muted);
 }
 
 .status--expired {
-    background: rgba(192, 57, 43, 0.1);
+    background: rgba(220, 38, 38, 0.1);
     color: var(--accent-red);
 }
 
 .status--expiring {
-    background: rgba(192, 124, 42, 0.12);
+    background: rgba(217, 119, 6, 0.12);
     color: var(--accent-amber);
 }
 
 .status--valid {
-    background: rgba(107, 124, 62, 0.12);
+    background: rgba(20, 184, 166, 0.12);
     color: var(--accent-green);
 }
 
 .status--paid {
-    background: rgba(107, 124, 62, 0.12);
+    background: rgba(20, 184, 166, 0.12);
     color: var(--accent-green);
 }
 
@@ -726,22 +726,22 @@ body::after {
 }
 
 .status--denied {
-    background: rgba(192, 57, 43, 0.1);
+    background: rgba(220, 38, 38, 0.1);
     color: var(--accent-red);
 }
 
 .status--overdue {
-    background: rgba(192, 57, 43, 0.1);
+    background: rgba(220, 38, 38, 0.1);
     color: var(--accent-red);
 }
 
 .status--compliant {
-    background: rgba(107, 124, 62, 0.12);
+    background: rgba(20, 184, 166, 0.12);
     color: var(--accent-green);
 }
 
 .status--non-compliant {
-    background: rgba(192, 57, 43, 0.1);
+    background: rgba(220, 38, 38, 0.1);
     color: var(--accent-red);
 }
 
@@ -829,7 +829,7 @@ body::after {
     width: 100%;
     height: 6px;
     border-radius: 3px;
-    background: rgba(107, 124, 62, 0.1);
+    background: rgba(20, 184, 166, 0.1);
     overflow: hidden;
 }
 
@@ -858,7 +858,7 @@ body::after {
 }
 
 .doc-item:hover {
-    background: rgba(107, 124, 62, 0.05);
+    background: rgba(20, 184, 166, 0.05);
 }
 
 .doc-item-icon {
@@ -957,11 +957,11 @@ body::after {
     background: var(--gradient-primary);
     color: #FFFFFF;
     font-weight: 600;
-    box-shadow: 0 2px 12px rgba(107, 124, 62, 0.25);
+    box-shadow: 0 2px 12px rgba(20, 184, 166, 0.25);
 }
 
 .btn--primary:hover {
-    box-shadow: 0 4px 20px rgba(107, 124, 62, 0.35);
+    box-shadow: 0 4px 20px rgba(20, 184, 166, 0.35);
     transform: translateY(-1px);
 }
 
@@ -973,7 +973,7 @@ body::after {
 
 .btn--outline:hover {
     border-color: var(--border-active);
-    background: rgba(107, 124, 62, 0.06);
+    background: rgba(20, 184, 166, 0.06);
     color: var(--text-primary);
 }
 
@@ -998,7 +998,7 @@ body::after {
 }
 
 .data-table thead {
-    background: rgba(107, 124, 62, 0.06);
+    background: rgba(20, 184, 166, 0.06);
 }
 
 .data-table th {
@@ -1017,7 +1017,7 @@ body::after {
     padding: 0.875rem 1.25rem;
     font-size: 0.8125rem;
     color: var(--text-secondary);
-    border-bottom: 1px solid rgba(107, 124, 62, 0.08);
+    border-bottom: 1px solid rgba(20, 184, 166, 0.08);
     white-space: nowrap;
 }
 
@@ -1026,7 +1026,7 @@ body::after {
 }
 
 .data-table tbody tr:hover {
-    background: rgba(107, 124, 62, 0.05);
+    background: rgba(20, 184, 166, 0.05);
 }
 
 .data-table tbody tr:last-child td {
@@ -1047,7 +1047,7 @@ body::after {
     width: 30px;
     height: 30px;
     border-radius: 6px;
-    background: rgba(107, 124, 62, 0.06);
+    background: rgba(20, 184, 166, 0.06);
     border: 1px solid var(--border-color);
     color: var(--text-muted);
     cursor: pointer;
@@ -1063,7 +1063,7 @@ body::after {
 }
 
 .table-action-btn:hover {
-    background: rgba(107, 124, 62, 0.12);
+    background: rgba(20, 184, 166, 0.12);
     color: var(--accent-green);
     border-color: var(--border-active);
 }
@@ -1101,7 +1101,7 @@ body::after {
 }
 
 .schedule-day:hover {
-    border-color: rgba(107, 124, 62, 0.3);
+    border-color: rgba(20, 184, 166, 0.3);
 }
 
 .schedule-day-header {
@@ -1126,7 +1126,7 @@ body::after {
 }
 
 .schedule-day.today .schedule-day-header {
-    background: rgba(107, 124, 62, 0.1);
+    background: rgba(20, 184, 166, 0.1);
 }
 
 .schedule-day.today .schedule-day-date {
@@ -1145,13 +1145,13 @@ body::after {
     border-radius: 6px;
     font-size: 0.6875rem;
     border-left: 3px solid;
-    background: rgba(107, 124, 62, 0.05);
+    background: rgba(20, 184, 166, 0.05);
     cursor: pointer;
     transition: background var(--transition-fast);
 }
 
 .schedule-visit:hover {
-    background: rgba(107, 124, 62, 0.1);
+    background: rgba(20, 184, 166, 0.1);
 }
 
 .schedule-visit--nursing {
@@ -1595,8 +1595,8 @@ body::after {
 .analysis-badge {
     display: inline-block;
     padding: 0.35rem 1rem;
-    background: rgba(107, 124, 62, 0.1);
-    border: 1px solid rgba(107, 124, 62, 0.25);
+    background: rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.25);
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 600;
@@ -1657,7 +1657,7 @@ body::after {
 }
 
 .insight-list li:hover {
-    background: rgba(107, 124, 62, 0.05);
+    background: rgba(20, 184, 166, 0.05);
 }
 
 .insight-list li::before {
@@ -1692,16 +1692,16 @@ body::after {
 }
 
 .software-card:hover {
-    border-color: rgba(107, 124, 62, 0.25);
+    border-color: rgba(20, 184, 166, 0.25);
 }
 
 .software-card--featured {
-    border-color: rgba(107, 124, 62, 0.25);
-    box-shadow: 0 0 40px rgba(107, 124, 62, 0.08);
+    border-color: rgba(20, 184, 166, 0.25);
+    box-shadow: 0 0 40px rgba(20, 184, 166, 0.08);
 }
 
 .software-card--featured:hover {
-    border-color: rgba(107, 124, 62, 0.4);
+    border-color: rgba(20, 184, 166, 0.4);
 }
 
 .software-card-header {
@@ -1716,7 +1716,7 @@ body::after {
     width: 40px;
     height: 40px;
     border-radius: var(--radius-sm);
-    background: rgba(107, 124, 62, 0.08);
+    background: rgba(20, 184, 166, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1727,7 +1727,7 @@ body::after {
 }
 
 .software-rank--gold {
-    background: rgba(107, 124, 62, 0.15);
+    background: rgba(20, 184, 166, 0.15);
     color: var(--accent-green);
 }
 
@@ -1751,9 +1751,9 @@ body::after {
 }
 
 .software-tag--featured {
-    border-color: rgba(107, 124, 62, 0.35);
+    border-color: rgba(20, 184, 166, 0.35);
     color: var(--accent-green);
-    background: rgba(107, 124, 62, 0.08);
+    background: rgba(20, 184, 166, 0.08);
 }
 
 .software-body {
@@ -1851,7 +1851,7 @@ body::after {
 }
 
 .observation-card {
-    background: rgba(107, 124, 62, 0.04);
+    background: rgba(20, 184, 166, 0.04);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     padding: 1.25rem;
@@ -1860,7 +1860,7 @@ body::after {
 
 .observation-card:hover {
     border-color: var(--border-active);
-    background: rgba(107, 124, 62, 0.08);
+    background: rgba(20, 184, 166, 0.08);
 }
 
 .observation-card h4 {
@@ -1887,7 +1887,7 @@ body::after {
     display: flex;
     gap: 1.25rem;
     padding: 1.25rem 1.5rem;
-    background: rgba(107, 124, 62, 0.04);
+    background: rgba(20, 184, 166, 0.04);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     transition: all var(--transition-base);
@@ -1895,7 +1895,7 @@ body::after {
 
 .recommendation-item:hover {
     border-color: var(--border-active);
-    background: rgba(107, 124, 62, 0.08);
+    background: rgba(20, 184, 166, 0.08);
 }
 
 .rec-number {
@@ -1930,7 +1930,7 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(45, 59, 31, 0.35);
+    background: rgba(13, 148, 136, 0.35);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 200;
@@ -1980,7 +1980,7 @@ body::after {
 .modal-close {
     width: 32px;
     height: 32px;
-    background: rgba(107, 124, 62, 0.06);
+    background: rgba(20, 184, 166, 0.06);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     color: var(--text-muted);
@@ -2048,7 +2048,7 @@ body::after {
 .form-textarea:focus {
     border-color: var(--border-active);
     background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 0 3px rgba(107, 124, 62, 0.1);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
 }
 
 .form-textarea {

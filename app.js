@@ -1,5 +1,5 @@
 /* ============================
-   CareFlow — Application Logic
+   KindTide — Application Logic
    Home Care Management System
    ============================ */
 

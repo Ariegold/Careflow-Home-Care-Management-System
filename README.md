@@ -1,6 +1,6 @@
-# CareFlow — Home Care Management System
+# KindTide — Care Management System
 
-A fully functional, single-page web application for managing a home care agency. Built with pure HTML, CSS, and JavaScript — no frameworks required.
+A fully functional, single-page web application for managing a care agency. Built with pure HTML, CSS, and JavaScript — no frameworks required. Featuring a clean **Teal & White** design theme.
 
 ## Features
 
@@ -18,9 +18,17 @@ A fully functional, single-page web application for managing a home care agency.
 ## Tech Stack
 
 - HTML5 (semantic, single-page)
-- Vanilla CSS (custom design system, dark mode, glassmorphism)
+- Vanilla CSS (custom design system, Teal & White theme)
 - Vanilla JavaScript (in-memory data store, DOM rendering, modal system)
 - Google Fonts — Outfit
+
+## Design Theme
+
+**Teal & White** — Clean, professional healthcare aesthetic
+- Primary: Teal `#14B8A6` / Dark Teal `#0D9488`
+- Background: White `#FFFFFF` / Light Teal `#F0FDFC`
+- Sidebar: Deep Teal `#0F766E`
+- Text: Dark Teal `#134E4A`
 
 ## Getting Started
 
@@ -37,12 +45,8 @@ Or simply open `index.html` directly in your browser.
 ## Project Structure
 
 ```
-├── index.html     # Full SPA structure (801 lines)
-├── styles.css     # Complete design system (2,251 lines)
-├── app.js         # All logic and data (1,377 lines)
+├── index.html     # Full SPA structure
+├── styles.css     # Complete design system (Teal & White)
+├── app.js         # All logic and data
 └── .gitignore
 ```
-
-## Screenshots
-
-Built with a professional dark theme featuring teal-to-blue gradient accents, glassmorphism cards, smooth page transitions and micro-animations.
