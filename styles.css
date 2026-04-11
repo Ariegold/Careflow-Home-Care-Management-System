@@ -18,10 +18,10 @@
     --border-color: rgba(20, 184, 166, 0.18);
     --border-active: rgba(13, 148, 136, 0.55);
 
-    --text-primary: #134E4A;
-    --text-secondary: #0F766E;
-    --text-muted: #5EADA7;
-    --text-accent: #14B8A6;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    --text-accent: #000000;
 
     --accent-green: #14B8A6;
     --accent-teal-dark: #0D9488;
