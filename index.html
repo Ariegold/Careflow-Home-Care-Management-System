@@ -62,6 +62,10 @@
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
                     <span>Care Plans</span>
                 </a>
+                <a href="#" class="nav-item smartplans-nav" data-page="smartplans" id="nav-smartplans">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    <span>SmartPlans ✨</span>
+                </a>
             </div>
 
             <div class="nav-section">
@@ -581,6 +585,163 @@
                 </div>
             </section>
 
+            <!-- ========== SMARTPLANS PAGE ========== -->
+            <section class="page" id="page-smartplans">
+                <div class="smartplan-container">
+                    <!-- Intro View -->
+                    <div id="smartplan-intro" class="smartplan-view active">
+                        <div class="smartplan-hero">
+                            <div class="smartplan-hero-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+                            <h2>AI-Powered Onboarding</h2>
+                            <p>Taking on new clients is the key to business growth - but onboarding is seriously time-consuming. Record the consultation and let our workflow transform it into an initial care plan assessment instantly.</p>
+                            <button class="btn btn--primary btn--large mt-4" id="btn-start-smartplan">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                Simulate Webhook Processing
+                            </button>
+                        </div>
+                        <div class="smartplan-features">
+                            <div class="feature-card">
+                                <h4>Record & Transcribe</h4>
+                                <p>Capture everything while you focus exclusively on the client and their needs.</p>
+                            </div>
+                            <div class="feature-card">
+                                <h4>AI Assessment</h4>
+                                <p>Turn conversational notes into structured outcomes and tasks in seconds.</p>
+                            </div>
+                            <div class="feature-card">
+                                <h4>Compliant by Design</h4>
+                                <p>Powered by our secure n8n integration, aligned with top care quality standards.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wizard View -->
+                    <div id="smartplan-wizard" class="smartplan-view">
+                        <div class="wizard-header">
+                            <div class="wizard-patient-info">
+                                <span class="avatar bg-purple">AS</span>
+                                <div>
+                                    <div class="patient-name">Annie Smith</div>
+                                    <div class="patient-meta">Generated from: Setup Consultation on 19 Sept 2024</div>
+                                </div>
+                            </div>
+                            <div class="wizard-actions">
+                                <button class="btn btn--outline" id="btn-cancel-smartplan">Delete assessment</button>
+                                <button class="btn btn--primary" id="btn-submit-smartplan">Submit to Care Plans</button>
+                            </div>
+                        </div>
+
+                        <div class="wizard-steps-nav">
+                            <button class="step-nav-btn active" data-step="1">1. Needs Assessment</button>
+                            <button class="step-nav-btn" data-step="2">2. Summary & Outcomes</button>
+                            <button class="step-nav-btn" data-step="3">3. Tasks</button>
+                            <button class="step-nav-btn" data-step="4">4. Risks & Mitigations</button>
+                        </div>
+
+                        <div class="wizard-content">
+                            <!-- Step 1 -->
+                            <div class="wizard-step active" id="wizard-step-1">
+                                <h3>Administrative Assessment</h3>
+                                <p class="step-subtitle">Record Annie's level of independence for administrative activities</p>
+                                
+                                <div class="assessment-form-group">
+                                    <label>Can Annie handle their own finances?</label>
+                                    <div class="radio-group">
+                                        <label class="radio-label"><input type="radio" name="finances" value="independent" checked> Yes, independently</label>
+                                        <label class="radio-label"><input type="radio" name="finances" value="help"> Yes, with help</label>
+                                        <label class="radio-label"><input type="radio" name="finances" value="dependent"> No, fully dependent</label>
+                                    </div>
+                                    <label>Additional details</label>
+                                    <textarea class="form-textarea">Annie keeps her own books and also has an accountant.</textarea>
+                                </div>
+
+                                <div class="assessment-form-group">
+                                    <label>Does Annie have an Advanced Directive in place?</label>
+                                    <div class="radio-group">
+                                        <label class="radio-label"><input type="radio" name="adv_directive" value="yes" checked> Yes</label>
+                                        <label class="radio-label"><input type="radio" name="adv_directive" value="no"> No</label>
+                                    </div>
+                                    <label>Additional details</label>
+                                    <textarea class="form-textarea">Annie put an Advanced Directive in place this year.</textarea>
+                                    <label>Where is it kept?</label>
+                                    <input type="text" class="form-input" value="It is kept on file with her lawyer and there is a copy in her safe.">
+                                </div>
+
+                                <div class="assessment-form-group">
+                                    <label>Does Annie have a will?</label>
+                                    <div class="radio-group">
+                                        <label class="radio-label"><input type="radio" name="will" value="yes" checked> Yes</label>
+                                        <label class="radio-label"><input type="radio" name="will" value="no"> No</label>
+                                    </div>
+                                    <label>Where is it kept?</label>
+                                    <input type="text" class="form-input" value="It is kept on file with her lawyer and there is a copy in her safe.">
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="wizard-step" id="wizard-step-2">
+                                <h3>Assessment summary and outcomes</h3>
+                                <p class="step-subtitle">Describe how your team can support Annie</p>
+                                <textarea class="form-textarea large" id="smartplan-summary">Annie can manage her own finances but she may need help managing her monthly finances and protecting herself from financial risks. Care staff should assist her with organising bills and checking bank statements. They need to monitor for unusual spending and potential scams, while keeping clear records of all financial decisions. Regular communication with family or Power of Attorney is essential. Staff should help protect her by setting up fraud alerts and call blocking services, watching for any suspicious activity.</textarea>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="wizard-step" id="wizard-step-3">
+                                <div class="flex-between mb-4">
+                                    <div>
+                                        <h3>Tasks</h3>
+                                        <p class="step-subtitle">Add tasks to support Annie in achieving their outcomes.</p>
+                                    </div>
+                                    <button class="btn btn--outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Task</button>
+                                </div>
+                                <div class="smartplan-task-list">
+                                    <div class="smartplan-task">
+                                        <div class="task-info">
+                                            <h4>Assist with appointments</h4>
+                                            <p>Prompt Annie to schedule and attend her accountant appointments.</p>
+                                            <div class="task-schedule">Every 4 weeks - Mon - Afternoon</div>
+                                        </div>
+                                        <button class="btn btn--ghost">Edit</button>
+                                    </div>
+                                    <div class="smartplan-task">
+                                        <div class="task-info">
+                                            <h4>Assist to manage finances</h4>
+                                            <p>Prompt Annie to maintain her financial records.</p>
+                                            <div class="task-schedule">Weekly - Mon - Morning</div>
+                                        </div>
+                                        <button class="btn btn--ghost">Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="wizard-step" id="wizard-step-4">
+                                <div class="flex-between mb-4">
+                                    <div>
+                                        <h3>Risks and mitigations</h3>
+                                        <p class="step-subtitle">Record any risks Annie presents with, and the measures taken to mitigate them.</p>
+                                    </div>
+                                    <button class="btn btn--outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Risk</button>
+                                </div>
+                                <div class="smartplan-task-list">
+                                    <div class="smartplan-task">
+                                        <div class="task-info">
+                                            <div class="flex-align-center gap-2">
+                                                <span class="status-badge status--low">Low Risk</span>
+                                                <h4>Loss of independence.</h4>
+                                            </div>
+                                            <p class="mt-2">While Annie can manage her own administrative tasks and finances, she does need to be prompted to maintain appointments with her accountant. The carer should have a weekly task to remind Annie to schedule and attend any of these appointments.</p>
+                                        </div>
+                                        <button class="btn btn--ghost">Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- ========== DOCUMENTATION PAGE ========== -->
             <section class="page" id="page-documentation">
                 <div class="doc-quality-banner">
@@ -788,6 +949,31 @@
             <div class="modal-footer">
                 <button class="btn btn--outline" id="modalCancel">Cancel</button>
                 <button class="btn btn--primary" id="modalSave">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- n8n Processing Simulation Overlay -->
+    <div class="modal-overlay" id="n8nSimulationOverlay">
+        <div class="n8n-simulation-modal">
+            <div class="n8n-logo">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor"><path d="M11 2h2v20h-2zM4.1 5.5l1.4-1.4 14 14-1.4 1.4zM22 11v2H2v-2zM19.9 5.5l-1.4-1.4-14 14 1.4 1.4z"/></svg>
+            </div>
+            <h3>Workflow Processing</h3>
+            <p>Gathering consultation transcript and sending to OpenAI for NLP assessment generation...</p>
+            <div class="n8n-steps">
+                <div class="n8n-step" id="n8n-step-1">
+                    <div class="step-orb"></div>
+                    <span>Webhook triggered</span>
+                </div>
+                <div class="n8n-step" id="n8n-step-2">
+                    <div class="step-orb"></div>
+                    <span>OpenAI processing transcript</span>
+                </div>
+                <div class="n8n-step" id="n8n-step-3">
+                    <div class="step-orb"></div>
+                    <span>Structuring JSON response</span>
+                </div>
             </div>
         </div>
     </div>

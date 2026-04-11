@@ -17,6 +17,7 @@ const DataStore = {
         { id: 6, name: 'James O\'Brien', dob: '1938-06-25', diagnosis: 'Parkinson\'s Disease', caregiver: 'David Kim', authStatus: 'expired', status: 'inactive', allergies: 'None', dnr: true },
         { id: 7, name: 'Patricia Wilson', dob: '1950-12-03', diagnosis: 'Hypertension', caregiver: 'Maria Santos', authStatus: 'valid', status: 'active', allergies: 'Codeine', dnr: false },
         { id: 8, name: 'George Baker', dob: '1943-04-18', diagnosis: 'Post-Stroke Rehabilitation', caregiver: 'James Rodriguez', authStatus: 'valid', status: 'active', allergies: 'Iodine', dnr: false },
+        { id: 9, name: 'Annie Smith', dob: '1941-02-14', diagnosis: 'General Frailty', caregiver: 'Sarah Williams', authStatus: 'valid', status: 'active', allergies: 'None', dnr: false },
     ],
 
     caregivers: [
@@ -220,6 +221,7 @@ const pageTitles = {
     compliance: { title: 'Compliance & EVV', subtitle: 'Electronic Visit Verification & Document Tracking' },
     billing: { title: 'Billing', subtitle: 'Invoicing & Claims Management' },
     authorisations: { title: 'Authorisations', subtitle: 'Service Authorization Tracking' },
+    smartplans: { title: 'SmartPlans ✨', subtitle: 'AI-Powered Onboarding & Assessments' },
 };
 
 function navigateTo(pageName) {
@@ -268,6 +270,7 @@ function renderPage(pageName) {
         case 'compliance': renderCompliance(); break;
         case 'billing': renderBilling(); break;
         case 'authorisations': renderAuthorisations(); break;
+        case 'smartplans': renderSmartPlans(); break;
     }
 }
 
@@ -1301,6 +1304,106 @@ function editPatient(id) {
         renderPatients();
         showToast(`Patient ${p.name} updated`);
     });
+}
+
+// --- SmartPlans ---
+function renderSmartPlans() {
+    const btnStart = document.getElementById('btn-start-smartplan');
+    const introView = document.getElementById('smartplan-intro');
+    const wizardView = document.getElementById('smartplan-wizard');
+    const n8nOverlay = document.getElementById('n8nSimulationOverlay');
+    const stepsNav = document.querySelectorAll('.step-nav-btn');
+    const stepsContent = document.querySelectorAll('.wizard-step');
+    const btnCancel = document.getElementById('btn-cancel-smartplan');
+    const btnSubmit = document.getElementById('btn-submit-smartplan');
+
+    if (introView) introView.classList.add('active');
+    if (wizardView) wizardView.classList.remove('active');
+    if (stepsNav.length > 0) stepsNav[0].click(); // Reset steps
+
+    if (btnStart) {
+        btnStart.onclick = () => {
+            n8nOverlay.classList.add('active');
+            
+            const n8nSteps = [
+                document.getElementById('n8n-step-1'),
+                document.getElementById('n8n-step-2'),
+                document.getElementById('n8n-step-3')
+            ];
+
+            n8nSteps.forEach(s => {
+                s.classList.remove('processing');
+                s.classList.remove('completed');
+            });
+
+            // Simulate n8n workflow timing
+            setTimeout(() => {
+                n8nSteps[0].classList.add('processing');
+                setTimeout(() => {
+                    n8nSteps[0].classList.remove('processing');
+                    n8nSteps[0].classList.add('completed');
+                    
+                    n8nSteps[1].classList.add('processing');
+                    setTimeout(() => {
+                        n8nSteps[1].classList.remove('processing');
+                        n8nSteps[1].classList.add('completed');
+                        
+                        n8nSteps[2].classList.add('processing');
+                        setTimeout(() => {
+                            n8nSteps[2].classList.remove('processing');
+                            n8nSteps[2].classList.add('completed');
+                            setTimeout(() => {
+                                n8nOverlay.classList.remove('active');
+                                introView.classList.remove('active');
+                                wizardView.classList.add('active');
+                                showToast('AI Initial Assessment Generated!');
+                            }, 800);
+                        }, 1200);
+                    }, 1800);
+                }, 800);
+            }, 400);
+        };
+    }
+
+    stepsNav.forEach(btn => {
+        btn.onclick = (e) => {
+            stepsNav.forEach(b => b.classList.remove('active'));
+            stepsContent.forEach(c => c.classList.remove('active'));
+            
+            e.target.classList.add('active');
+            const stepId = `wizard-step-${e.target.dataset.step}`;
+            document.getElementById(stepId).classList.add('active');
+        };
+    });
+
+    if (btnCancel) {
+        btnCancel.onclick = () => {
+            introView.classList.add('active');
+            wizardView.classList.remove('active');
+            showToast('Assessment deleted.', 'success');
+        };
+    }
+
+    if (btnSubmit) {
+        btnSubmit.onclick = () => {
+            DataStore.carePlans.push({
+                id: generateId(),
+                patientId: 9,
+                patient: 'Annie Smith',
+                type: 'AI Generated Plan',
+                tasks: ['Assist with appointments', 'Assist to manage finances'],
+                goals: 'Manage finances and protect from financial risks.',
+                startDate: new Date().toISOString().split('T')[0],
+                endDate: '2026-10-15',
+                status: 'active',
+                rightsDocumented: true, dnrOnFile: true, allergiesDocumented: true
+            });
+            showToast('SmartPlan saved successfully! Redirecting...', 'success');
+            setTimeout(() => {
+                navigateTo('careplans');
+            }, 1500);
+        };
+    }
 }
 
 // ========================
